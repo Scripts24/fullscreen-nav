@@ -1,8 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+* {
+    margin         : 0;
+    padding        : 0;
+    box-sizing     : border-box;
+    list-style     : none;
+    text-decoration: none;
+    outline        : none;
+    border         : none;
+}
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
+html,
+body {
+    width     : 100%;
+    height    : 100%;
+    background: #ffffff;
+}
+
+p {
+    font-family   : "Space Mono";
+    text-transform: uppercase;
+    font-size     : 14px;
+}
+
+a {
+    color         : antiquewhite;
+    text-transform: uppercase;
+    font-family   : "Space Mono";
+    font-size     : 14px;
+}
+
+img {
+    width     : 100%;
+    height    : 100%;
+    object-fit: cover;
+}
+
+.website-content {
+    position: fixed;
+    top     : 0;
+    left    : 0;
+    width   : 100%;
+    height  : 100%;
+    z-index : 0;
+}
+
+.website-content .header {
+    width    : 800px;
+    position : absolute;
+    top      : 50%;
+    left     : 50%;
+    transform: translate(-50%, -50%);
+}
+
+nav {
+    position       : fixed;
+    width          : 100%;
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+    z-index        : 2;
+    padding        : 0 1em;
+}
+
+nav>div {
+    flex: 1;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.logo-main {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+}
+
+.logo-main img {
+    width: 300px;
+}
+
+.toggle-btn {
+    display        : flex;
+    justify-content: flex-end;
+    padding        : 0 1.5em;
+}
+
+.burger {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    padding        : 1.5em 2em;
+    background     : rgba(255, 255, 255, 0.25);
+    border-radius  : .25em;
+    height         : 20px;
+    width          : 28px;
+    transition     : all 250ms ease-out;
+    cursor         : pointer;
+}
+
+.burger::before,
+.burger::after {
+    content    : '';
+    width      : 28px;
+    height     : 1.5px;
+    position   : absolute;
+    background : rgb(8, 1, 32);
+    transition : all 250ms ease-out;
+    will-change: transform;
+}
+
+.burger::before {
+    transform: translateY(-3px);
+}
+
+.burger::after {
+    transform: translateY(3px);
+}
+
+.active.burger::before {
+    transform: translateY(0) rotate(45deg);
+    background: #ffffff;
+}
+
+.active.burger::after {
+    transform: translateY(0) rotate(-45deg);
+    background: #ffffff;
+}
+
+.burger:hover::before,
+.burger:hover::after {
+    background: #000;
+}
+
+.burger:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.overlay {
+    position: fixed;
+    top     : 0;
+    left    : 0;
+    width   : 100vw;
+    height  : 100vh;
+    display : flex;
+}
+
+.block {
+    flex        : 1;
+    height      : 100%;
+    background  : #000;
+    clip-path   : polygon(0 0, 100% 0, 100% 0, 0 0);
+    margin-right: -2px;
+}
+
+.overlay-menu {
+    position       : fixed;
+    top            : 0;
+    left           : 0;
+    width          : 100vw;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+    color          : antiquewhite;
+    padding        : 5em 5em;
+}
+
+.menu-item,
+.menu-title {
+    flex   : 1;
+    width  : 100%;
+    opacity: 0;
+}
+
+.menu-title {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+}
+
+.menu-item {
+    display   : flex;
+    padding   : 1em;
+    transition: .3s;
+    cursor    : pointer;
+}
+
+.menu-item-year,
+.menu-item-link {
+    flex: 1;
+}
+
+.menu-item-name {
+    flex           : 3;
+    display        : flex;
+    justify-content: center;
+}
+
+.menu-item-name p {
+    font-family: "PP Formula";
+    font-size  : 4vw;
+    text-align : center;
+}
+
+.menu-item-link {
+    text-align: right;
+}
+
+/**------------------- MEDIA QUERIES---------------------*/
+
+@media screen and (max-width:900px) {
+    .logo-main img {
+        display: none;
+    }
+
+    .website-content .header {
+        width: 300px;
+    }
 }
